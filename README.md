@@ -2,7 +2,7 @@
 
 ## 效果图
 
-[![s1pwzq.jpg](https://s3.ax1x.com/2021/01/10/s1pwzq.jpg)](https://imgchr.com/i/s1pwzq)
+![s1pwzq.jpg](https://s3.ax1x.com/2021/01/10/s1pwzq.jpg)
 
 ## 文件说明
 
