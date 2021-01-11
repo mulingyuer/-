@@ -20,7 +20,7 @@
   var denglongHtml = "<div class=\"deng-box\"><div class=\"deng\"><div class=\"xian\"></div><div class=\"deng-a\"><div class=\"deng-b\"><div class=\"deng-t\">" + (leftText ? leftText : "新年") + "</div></div></div><div class=\"shui shui-a\"><div class=\"shui-c\"></div><div class=\"shui-b\"></div></div></div></div><div class=\"deng-box1\"><div class=\"deng\"><div class=\"xian\"></div><div class=\"deng-a\"><div class=\"deng-b\"><div class=\"deng-t\">" + (rightText ? rightText : "快乐") + "</div></div></div><div class=\"shui shui-a\"><div class=\"shui-c\"></div><div class=\"shui-b\"></div></div></div></div>";
   if (appendPosition) {
     if (appendPosition.startsWith("#")) {
-      appendPosition = document.getElementById(appendPosition);
+      appendPosition = document.getElementById(appendPosition.replace("#", ""));
     } else {
       throw new Error("插入位置属性append的值必须为id选择器，例：#footer");
     }
