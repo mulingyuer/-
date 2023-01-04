@@ -1,0 +1,220 @@
+[class^="lantern"],
+[class^="lantern"]::before,
+[class^="lantern"]::after {
+  box-sizing: border-box;
+}
+.lantern-left,
+.lantern-right {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+.lantern-left {
+  left: 50px;
+}
+.lantern-right {
+  right: 50px;
+}
+.lantern-container {
+  width: 150px;
+  height: 100px;
+  position: relative;
+  line-height: 0;
+  animation: lantern 5s infinite ease-in-out;
+  transform-origin: 50% -100px;
+}
+.lantern-center {
+  position: relative;
+  height: 100%;
+  background-color: $bgColor;
+  border-radius: 120px;
+  box-shadow: 0 0 80px -10px $bgColor;
+}
+.lantern-line {
+  height: 100%;
+  text-align: center;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border: 2px solid $lineColor;
+    border-radius: 50%;
+    transform: translate(-50%, 0);
+  }
+  &::before {
+    width: 75%;
+    height: 100%;
+  }
+  &::after {
+    width: 35%;
+    height: 100%;
+  }
+}
+.lantern-text-wrap {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+}
+.lantern-text {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: $textColor;
+  writing-mode: vertical-lr;
+  text-align: center;
+  letter-spacing: 5px;
+}
+.lantern-top,
+.lantern-bottom {
+  width: 40%;
+  height: 8px;
+  background-color: $lineColor;
+  position: relative;
+  z-index: 1;
+}
+.lantern-top {
+  margin: 0 auto -2px auto;
+  border-radius: 5px 5px 0 0;
+}
+.lantern-bottom {
+  margin: -2px auto 0 auto;
+  border-radius: 0 0 5px 5px;
+}
+.lantern-top-rope,
+.lantern-bottom-rope {
+  width: 4px;
+  background-color: $lineColor;
+  margin: 0 auto;
+}
+.lantern-top-rope {
+  height: 40px;
+}
+.lantern-bottom-rope {
+  position: relative;
+  height: 20px;
+  animation: lantern 3s infinite ease-in-out;
+  transform-origin: 50% -45px;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: -4px;
+    width: 12px;
+    height: 50px;
+    background: linear-gradient(#f00, #e36d00 3px, #fbd342 5px, #e36d00 8px, #e36d00 12px, #f00 16px, rgba(255, 0, 0, 0.8) 26px, rgba(255, 0, 0, 0.6));
+    border-radius: 5px 5px 0 0;
+  }
+}
+
+// 整体动画
+@keyframes lantern {
+  0% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .lantern-left {
+    left: 30px;
+  }
+  .lantern-right {
+    right: 30px;
+  }
+  .lantern-container {
+    width: 100px;
+    height: 60px;
+  }
+  .lantern-top-rope {
+    width: 3px;
+    height: 20px;
+  }
+  .lantern-center {
+    box-shadow: 0 0 40px -10px $bgColor;
+  }
+  .lantern-top,
+  .lantern-bottom {
+    width: 35%;
+    height: 6px;
+  }
+  .lantern-top {
+    margin-bottom: -0.5px;
+  }
+  .lantern-bottom {
+    margin-top: -0.5px;
+  }
+  .lantern-bottom-rope {
+    width: 2px;
+    &::after {
+      left: -2px;
+      width: 6px;
+      height: 25px;
+    }
+  }
+  .lantern-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .lantern-left {
+    left: 30px;
+  }
+  .lantern-right {
+    right: 30px;
+  }
+  .lantern-container {
+    width: 80px;
+    height: 50px;
+  }
+  .lantern-top-rope {
+    width: 3px;
+    height: 20px;
+  }
+  .lantern-center {
+    box-shadow: 0 0 40px -10px $bgColor;
+  }
+  .lantern-top,
+  .lantern-bottom {
+    width: 35%;
+    height: 4px;
+  }
+  .lantern-top {
+    margin-bottom: 0px;
+  }
+  .lantern-bottom {
+    margin-top: 0px;
+  }
+  .lantern-bottom-rope {
+    width: 2px;
+    &::after {
+      left: -2px;
+      width: 6px;
+      height: 25px;
+    }
+  }
+  .lantern-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  .lantern-line {
+    &::before,
+    &::after {
+      border-width: 1px;
+    }
+  }
+}
